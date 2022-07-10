@@ -1,0 +1,38 @@
+ALGORITHM DOT_PRODUCT
+VAR
+    V1,V2 : ARRAY_OF INTEGER[100];
+    ps,n1,n2,i : INTEGER := 0 ; 
+    PROCEDURE dot_product(v1,v2:ARRAY_OF INTEGER[100], VAR ps : INTEGER)
+    VAR 
+        i : INTEGER;
+    BEGIN
+        IF(v1.length = v2.length) THEN
+            FOR i FROM 0 TO v1.length DO
+                ps := ps + v1[i] * v2[i];
+            END_FOR
+            Write("Le produit scalaire de vos vecteurs est ",ps);
+        ELSE
+            Write("La longueur du vecteur n'est pas égale");
+        END_IF
+    END
+    BEGIN
+    Write("Veuillez entrer la taille du premier vecteur (la taille maximale est de 100).");
+    Read(n1);
+    FOR i FROM 0 TO n1 DO
+        Read(V1[i])
+    END_FOR
+
+    Write("Veuillez entrer la taille du vecteur seconde (la taille maximale est de 100).");
+    Read(n2);
+    FOR i FROM 0 TO n2 DO
+        Read(V2[i])
+    END_FOR
+
+    dot_product(V1,V2,ps);
+
+    IF (ps = 0) THEN
+        Write("V1 et V2 sont orthogonaux");
+    ELSE
+        Write("V1 et V2 ne sont pas orthogonaux");
+    END_IF
+END
